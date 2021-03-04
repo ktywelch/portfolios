@@ -1,0 +1,5 @@
+GET http://localhost:3030/api
+
+###
+
+GET http://localhost:3030/api/test
