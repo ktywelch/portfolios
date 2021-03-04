@@ -1,15 +1,12 @@
 import React from 'react'
-import { Paper, Button } from '@material-ui/core'
+import { Paper} from '@material-ui/core'
 
 const Item = (props) => {
     return (
-        <Paper>
+        <Paper  align='center' style={{ align: 'center'}}>
             <h2>{props.item.name}</h2>
-            <p>{props.item.description}</p>
-
-            <Button className="CheckButton">
-                Check it out!
-            </Button>
+            <h3>{props.item.description}</h3>
+            <img className="d-block w-100" src={props.item.img} alt={props.item.alt}></img>
         </Paper>
     )
 }

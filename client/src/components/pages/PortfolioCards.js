@@ -1,7 +1,14 @@
 import React, { useState,useEffect } from "react";
 import getDescendantProp from '../utils/getDescendantProp'
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Card, CardContent, Typography, CardHeader, CardMedia, Button } from "@material-ui/core/";
+import { Grid, Card,Typography, CardHeader, CardMedia, TextField } from "@material-ui/core/";
+
+/*    useEffect(() => {
+       setFilteredEmployees (
+            employees.filter ( employee => {
+                return employee.name.last.toLowerCase().includes(searchName.toLowerCase()) ||  employee.name.first.toLowerCase().includes(searchName.toLowerCase());
+            }))
+    }, [searchName, employees])*/
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,59 +20,33 @@ const useStyles = makeStyles((theme) => ({
 
 const PortfolioCards = (props) => { 
     const classes = useStyles();   
-
     console.log(props);
-    
     const projects = props.cards;
 
-    const [filteredTitle, setFilteredTitle] =  useState([])
+    const [filteredProjects, setFilteredProjects] =  useState(projects)
     const [searchTitle, setSerachTitle] = useState('');
-    // const [sortedField, setSortedField] = useState(null);
-    // const [sortDirection, setSortDirection] = useState('descending');
-    // const [classBtnVal,setClassBtnval ] = useState({name: 'none', country: 'none', email: 'none'})
 
-    // const filteredEmployees = employees.filter ( employee => {
-    //     return employee.name.last.toLowerCase().includes(searchName.toLowerCase()) ||  employee.name.first.toLowerCase().includes(searchName.toLowerCase())
-        
-    //   })
     useEffect(() => {
-       setFilteredTitle (
+       setFilteredProjects (
             projects.filter ( project => {
                 return project.title.toLowerCase().includes(searchTitle.toLowerCase());
             }))
     }, [searchTitle, projects])
 
-    //let sortedEmployees=[...filteredEmployees]
-
-    // if (sortedField !== null) {
-    // sortedEmployees.sort((a, b) => {
-    //     let s_order=1; 
-    //     sortDirection === 'ascending'?s_order=1:s_order=-1
-    //     // because our data is hirearchical need to helper function to convert the string into an opject of descending keys
-    //     let a_valField = getDescendantProp(a,sortedField);
-    //     let b_valField = getDescendantProp(b,sortedField);
-    //     //Making the sort function less calls these two lines replace the whole section
-    //      let val = 0; 
-    //      a_valField < b_valField ? val = -1 : val = 1;
-    //      return val * s_order;
-    //   });
-    // }
-    
-
     return (
         <div className={classes.root}>
-            <span>Filter by Title: </span> 
-             <input type="text" placeholder="Enter Filter Criteria" onChange={ e => setFilteredTitle(e.target.value)} />
+            <TextField style={{ padding: 10}} id="outlined-basic" label="Title Filter" variant="outlined" type="text" onChange={ e => setSerachTitle(e.target.value)} />
              <Grid container spacing={2} direction="row" xs={12} justify="flex-start" alignItems="flex-start"> 
-             { projects.map((card) => (
+             { filteredProjects.map((card) => (
             
-                     <Grid item xs={4} key={card._id}>
-                        <Card>
-                        <CardHeader title={card.title} />
-                            {<CardMedia className="media" image={card.imgLoc}  title={card.title} />}
-                                <p>{card.description}</p>
-                            {<Button type="button" onClick={() => window.open(card.gitBtn)} >Repository </Button>}
-                            {<Button type="button" onClick={() => window.open(card.deployBtn)} >Deployed </Button>}
+                     <Grid item xs={3} style={{ backgroundColor: 'teal', justify: "center", margin: 2 }}   key={card._id}>
+                        <Card style={{ paddingBottom: 10  }}>
+                        <CardHeader style={{ textAlign: 'center' }} bgcolor="background.paper" title={card.title} />
+                            {<CardMedia className="media"  image={card.imgLoc}  title={card.title} />}
+                            <Typography style={{ margin: 20  }}> {card.description}</Typography>
+                            {<button type="button" onClick={() => window.open(card.gitBtn)} >Repository </button>}
+                            {card.deployBtn ? 
+                                <button type="button"  onClick={() => window.open(card.deployBtn)} >Deployed </button> : null}
                         </Card>
                     </Grid>
 

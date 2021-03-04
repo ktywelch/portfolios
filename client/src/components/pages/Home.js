@@ -9,16 +9,26 @@ const Home = () => {
 
     var items = [
         {
-            name: "Random Name #1",
-            description: "Probably the most random thing you have ever seen!"
+            name: "Hobby Vineyard",
+            description: "Since 2017 proprietors of a small vineyard and winery in Glen Ellen",
+            img: "../images/Vineyard.png",
+            alt: "image of vineyard in sonoma"
         },
         {
-            name: "Random Name #2",
-            description: "Hello World!"
+            name: "Walking & hiking",
+            description: "Love Hiking and walking, ususally in San Francisco and Sonoma",
+            img: "../images/Hiking.png",
+            alt: "image hiking in San Francisco"
+        },
+        {
+            name: "Works at Genentech - Great place to work!",
+            description: "Delivery Lead in Pernsonalised Health Care Informatics",
+            img: "../images/genentech.jpg",
+            alt: "image of Genentech"
         }
     ]
     return (
-        <Carousel>
+        <Carousel interval= {5000}>
             {
                 items.map( (item, i) => <Item key={i} item={item} /> )
             }

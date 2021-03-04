@@ -1,6 +1,6 @@
 
 import Navbar from './components/Navbar.js'
-
+import Resume from './components/pages/Resume.js'
 import Footer from './components/Footer.js'
 import Home from './components/pages/Home.js'
 import Portfolio from './components/pages/Portfolio.js'
@@ -22,6 +22,9 @@ function App() {
           </Route> 
           <Route path="/Home">
             <Home />
+          </Route> 
+          <Route path="/Resume">
+            <Resume />
           </Route> 
           <Route path="/Portfolio">
             <Portfolio />

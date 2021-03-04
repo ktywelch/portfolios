@@ -19,7 +19,7 @@ let portfolioSeed = [
         title: 'Refactor Assignment',
         description: 'The first project covered the introduction of css utilizing the functionality to improve HTML',
         gitBtn: 'https://ktywelch.github.io/01-02-Homework/',
-        deployBtn: ''
+        deployBtn:  ''
       },
       {
         createDate: Date.now(),
