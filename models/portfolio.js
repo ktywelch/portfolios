@@ -6,10 +6,6 @@ const portfolioSchema = new Schema(
 
 
   {
-    createDate: {
-      type: Date,
-      default: Date.now
-    },
     imgLoc: {
         type: String,
         trim: true,
