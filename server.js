@@ -7,7 +7,7 @@ var app = express()
 
 app.use(cors())
 
-app.use(logger("dev"));
+//app.use(logger("dev"));
 const PORT = process.env.PORT || 3030;
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/portfolio", {
