@@ -1,8 +1,8 @@
-import useFetch from '../utils/useFetch'
-import useAxios from '../utils/useAxios'
+
 import  PortfolioCards  from './PortfolioCards'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+
 
 
 const Portfolio = () => {

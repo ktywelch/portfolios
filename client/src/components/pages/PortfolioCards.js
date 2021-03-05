@@ -44,7 +44,8 @@ const PortfolioCards = (props) => {
                         <CardHeader style={{ textAlign: 'center' }} bgcolor="background.paper" title={card.title} />
                             {<CardMedia className="media"  image={card.imgLoc}  title={card.title} />}
                             <Typography style={{ margin: 20  }}> {card.description}</Typography>
-                            {<button type="button" onClick={() => window.open(card.gitBtn)} >Repository </button>}
+                            { card.gitBtn ? 
+                                <button type="button" onClick={() => window.open(card.gitBtn)} >Repository </button>: null}
                             {card.deployBtn ? 
                                 <button type="button"  onClick={() => window.open(card.deployBtn)} >Deployed </button> : null}
                         </Card>

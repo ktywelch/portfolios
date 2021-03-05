@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
 
 const Footer = (props) => {
     return (
-        <nav className="navbar footer">
-            <h6>Kathleen Welch - Portfolio</h6>
-            <button onClick={window.location = "mailto:ktywelch@yahoo.com"}>Contact Me</button>
-        </nav>
+        < BottomNavigation >
+         <button type="button"  style={{ height: 26, backgroundColor: 'teal', color: 'white'}} 
+             onClick={() => window.open('https://www.linkedin.com/in/kathleen-welch-9701261/')} >LinkedIn Profile </button>
+        </ BottomNavigation>
       );
 }
  

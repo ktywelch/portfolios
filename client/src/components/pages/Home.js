@@ -1,7 +1,5 @@
-import useFetch from '../utils/useFetch'
-import useAxios from '../utils/useAxios'
+
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Button } from '@material-ui/core'
 import Item from './Item'
 
 

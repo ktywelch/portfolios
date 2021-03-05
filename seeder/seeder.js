@@ -4,7 +4,8 @@ require('dotenv').config();
 
 
 
-mongoose.connect(process.env.MONGODB_URI,{
+// mongoose.connect(process.env.MONGODB_URI,{
+  mongoose.connect('ktywelch:d5nd8GRqGjZZNbhY@cluster0.5xger.mongodb.net/portfolio?retryWrites=true&w=majority', {  
     useNewUrlParser: true,
     useUnifiedTopology: true,    
     useFindAndModify: false,

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -8,7 +9,7 @@ app.use(cors())
 
 const PORT = process.env.PORT || 3030;
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/portfolio", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
