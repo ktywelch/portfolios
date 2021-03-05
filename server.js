@@ -1,13 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-// const logger = require("morgan");
 const path = require("path");
 var cors = require('cors')
 var app = express()
 
 app.use(cors())
 
-//app.use(logger("dev"));
 const PORT = process.env.PORT || 3030;
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/portfolio", {
@@ -29,7 +27,7 @@ apiRoutes(app);
 
 
 app.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, 'client', build', 'index.html'));
 });
 
 
